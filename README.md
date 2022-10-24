@@ -57,8 +57,8 @@ for each kind of payload, we can test it using Python's request library.
 
 ```python
 # Create random data just to see that the endpoint is working.
-columns=[f'var_{i}' for i in range(0, 200)]
-random_data = pd.DataFrame(np.random.random((1, 200)), columns=columns)
+columns = ['a', 'b', 'c']
+random_data = pd.DataFrame(np.random.random((1, 3)), columns=columns)
 
 # Make the request. We use to_json in order to convert the dataframe into the expected data format.
 r = requests.post("http://0.0.0.0:8000/invocations", headers={"Content-Type": "application/json"}, data=random_data.to_json(orient='split'))
