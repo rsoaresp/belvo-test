@@ -63,3 +63,7 @@ random_data = pd.DataFrame(np.random.random((1, 200)), columns=columns)
 # Make the request. We use to_json in order to convert the dataframe into the expected data format.
 r = requests.post("http://0.0.0.0:8000/invocations", headers={"Content-Type": "application/json"}, data=random_data.to_json(orient='split'))
 ```
+
+# Beyond local model hosting
+
+In this test we have hosted our models in a local environment, wth the help of MLFlow. However, we'd like to host it on a cloud environment to allow requests from multiple sources. We can do this, still keeping MLFlow, by using tools like SageMaker our Kubernetes.
