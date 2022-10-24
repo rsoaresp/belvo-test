@@ -1,16 +1,16 @@
-#Belvo test
+# Belvo test
 
 This repo contains material for Belvo's machine learning test.
 
 
-#Creating an environment to explore and develop
+# Creating an environment to explore and develop
 
 The first thing we have to do is to create an exploratory environment to play with
 the available data and start modeling. Furthermore, we want that our experiments be
 reproducible and trackable, to truly deserve the _data science_ name.
 
 
-##Configuring the environment
+## Configuring the environment
 
 To mimic a production ready answer to the stated problem, we have packed two Docker images,
 one with a Jupyter lab, with the most common scientific libraries, and another one with
@@ -32,14 +32,14 @@ During the loading of the containers, you will see the corresponding links to st
 services in your browser. They typically looks like `http://127.0.0.1:10000/lab?token=<token>`
 for the Jupyter lab and `http://0.0.0.0:5000` for MLFlow.
 
-##Adding library dependencies
+## Adding library dependencies
 
 You can add dependencies required by the exploratory environment by passing them on the
 `dev-requirements.txt` file, located on the root folder. Remember that in order to apply
 any changes you have to rebuild the container.
 
 
-#Serving the models
+# Serving the models
 
 After playing with the notebooks, we have a list of models stored that we can test locally
 its behavior when encountering new data. We can look at the mlflow user interface to select
@@ -50,7 +50,7 @@ corresponding id, from the list of tracked models, create its api with the comma
 ./local-serve.sh <model-id>
 ```
 
-###Sending requests
+### Sending requests
 
 In order to test locally if the model is working as expected and if they behave correctly
 for each kind of payload, we can test it using Python's request library.
