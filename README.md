@@ -2,8 +2,13 @@
 
 This repo contains material for Belvo's machine learning test.
 
+# Pipeline description
 
-# Creating an environment to explore and develop
+A pdf with the description of a machine learning pipeline, with its actors and responsabilties can be found
+at the `belvo.drawio.pdf` file.
+
+
+# Experimental part: Creating an environment to explore and develop
 
 The first thing we have to do is to create an exploratory environment to play with
 the available data and start modeling. Furthermore, we want that our experiments be
