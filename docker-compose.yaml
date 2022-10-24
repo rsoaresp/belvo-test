@@ -1,0 +1,36 @@
+version: "3.9"
+
+networks:
+    com:
+        driver: bridge
+
+volumes:
+    mlflow_volume:
+    jupyter_volume:
+
+services:
+  mlflow:
+    build: ./mlflow
+    container_name: mlflow_server
+    command: mlflow server --host 0.0.0.0 --port 5000
+    ports:
+      - "5000:5000"
+    networks:
+      - com
+    volumes:
+      - mlflow_volume:/opt/mlflow
+  jupyter:
+    depends_on:
+      - mlflow
+    build:
+      dockerfile: ./jupyter/Dockerfile
+      context: .
+    container_name: jupyter_server
+    ports:
+      - 10000:8888
+    networks:
+      - com
+    volumes:
+      - jupyter_volume:/home/jovyan
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
